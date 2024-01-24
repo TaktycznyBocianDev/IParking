@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "cD34bXxcOjEmZCCT2o3C0uVG3NL7oeLgvf+qw8Zn/ITfedyERKz+M1GzHXn/oZc/4LHS5fBNZ21hXf+j/W7jvQ==",
+  "success": true,
+  "projectFilePath": "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\IParkingClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Stanisław\\.nuget\\packages\\dapper\\2.1.28\\dapper.2.1.28.nupkg.sha512",
+    "C:\\Users\\Stanisław\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.118\\stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512",
+    "C:\\Users\\Stanisław\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\Stanisław\\.nuget\\packages\\system.data.sqlite.core\\1.0.118\\system.data.sqlite.core.1.0.118.nupkg.sha512",
+    "C:\\Users\\Stanisław\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\Stanisław\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
