@@ -262,6 +262,7 @@
             Controls.Add(label1);
             Name = "CreateNewAccountForm";
             Text = "CreateNewAccountForm";
+            Load += CreateNewAccountForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

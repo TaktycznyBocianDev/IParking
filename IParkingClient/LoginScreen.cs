@@ -22,5 +22,10 @@ namespace IParkingClient
         }
 
         SQLiteConnection con = new SQLiteConnection(LoadConnectionString());
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

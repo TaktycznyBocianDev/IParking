@@ -17,5 +17,9 @@ namespace IParkingClient
             InitializeComponent();
         }
 
+        private void CreateNewAccountForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\IParkingClient.csproj": {}
+    "D:\\CSharpProjects\\IParking\\IParkingClient\\IParkingClient.csproj": {}
   },
   "projects": {
-    "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\IParkingClient.csproj": {
+    "D:\\CSharpProjects\\IParking\\IParkingClient\\IParkingClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\IParkingClient.csproj",
+        "projectUniqueName": "D:\\CSharpProjects\\IParking\\IParkingClient\\IParkingClient.csproj",
         "projectName": "IParkingClient",
-        "projectPath": "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\IParkingClient.csproj",
+        "projectPath": "D:\\CSharpProjects\\IParking\\IParkingClient\\IParkingClient.csproj",
         "packagesPath": "C:\\Users\\Stanisław\\.nuget\\packages\\",
-        "outputPath": "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\obj\\",
+        "outputPath": "D:\\CSharpProjects\\IParking\\IParkingClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

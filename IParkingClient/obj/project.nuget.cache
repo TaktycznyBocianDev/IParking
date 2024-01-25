@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cD34bXxcOjEmZCCT2o3C0uVG3NL7oeLgvf+qw8Zn/ITfedyERKz+M1GzHXn/oZc/4LHS5fBNZ21hXf+j/W7jvQ==",
+  "dgSpecHash": "CbDqYrGP1iOAZo1orHjdaCcMtqvvmnkjWPYZbPDF53YMdSioJ40zqXJbFFEnrdPcKZ4iykWU5tYokxtMWopxEg==",
   "success": true,
-  "projectFilePath": "D:\\CSharpProjects\\IParkingClient\\IParkingClient\\IParkingClient.csproj",
+  "projectFilePath": "D:\\CSharpProjects\\IParking\\IParkingClient\\IParkingClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stanisław\\.nuget\\packages\\dapper\\2.1.28\\dapper.2.1.28.nupkg.sha512",
     "C:\\Users\\Stanisław\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.118\\stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512",
