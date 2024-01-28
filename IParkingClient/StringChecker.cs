@@ -67,5 +67,15 @@ namespace IParkingClient
 
             return specialCharacters.Contains(c);
         }
+
+
+
+        public static bool IsCarPlateCorrect(string plateNumber)
+        {
+            string regex = @"^[A-Z0-9]{2,3}\s?[A-Z0-9]{4,5}$";
+
+            return Regex.IsMatch(plateNumber, regex, RegexOptions.IgnoreCase);
+        }
+   
     }
 }

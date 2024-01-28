@@ -161,6 +161,7 @@
             CreateBtn.TabIndex = 11;
             CreateBtn.Text = "Stwórz Konto";
             CreateBtn.UseVisualStyleBackColor = true;
+            CreateBtn.Click += CreateBtn_Click;
             // 
             // UserNameBox
             // 
@@ -211,6 +212,7 @@
             CarColorBox.Size = new Size(125, 27);
             CarColorBox.TabIndex = 21;
             CarColorBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
+            CarColorBox.TextChanged += CarColorBox_TextChanged;
             // 
             // ModelBox
             // 
@@ -219,6 +221,7 @@
             ModelBox.Size = new Size(125, 27);
             ModelBox.TabIndex = 20;
             ModelBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
+            ModelBox.TextChanged += ModelBox_TextChanged;
             // 
             // BrandBox
             // 
@@ -227,6 +230,7 @@
             BrandBox.Size = new Size(125, 27);
             BrandBox.TabIndex = 19;
             BrandBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
+            BrandBox.TextChanged += BrandBox_TextChanged;
             // 
             // PlateBox
             // 

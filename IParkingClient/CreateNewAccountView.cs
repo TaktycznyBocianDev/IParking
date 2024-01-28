@@ -58,6 +58,17 @@ namespace IParkingClient
 
         }
 
+        public bool CarPlateNumberValidation(string plateNumber)
+        {
+            if (!StringChecker.IsCarPlateCorrect(plateNumber))
+            {
+                CustomMessageBox("Błędna rejestracja",
+                    "Wprowadź prawidłową rejestrację pojazdu!");
+                return false;
+            }
+            return true;
+        }
+
         private void CustomMessageBox(string problemName, string problemDescription)
         {
             MessageBox.Show(problemDescription, problemName, MessageBoxButtons.OK);

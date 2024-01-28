@@ -28,6 +28,7 @@ namespace IParkingClient
             EmailBox.TextChangedComplete += EmailBox_TextChangedComplete;
             PassBox.TextChangedComplete += PassBox_TextChangedComplete;
             SecPassBox.TextChangedComplete += SecPassBox_TextChangedComplete;
+            PlateBox.TextChangedComplete += PlateBox_TextChangedComplete;
 
             // Set up password character and checkbox initial states
             PassBox.UseSystemPasswordChar = true;
@@ -36,6 +37,8 @@ namespace IParkingClient
             ShowSecPass.Checked = false;
 
         }
+
+
 
         private void CreateNewAccountForm_Load(object sender, EventArgs e)
         {
@@ -46,12 +49,12 @@ namespace IParkingClient
 
         private void UserNameBox_TextChanged(object sender, EventArgs e)
         {
-           
+
             if (!createNewAccountView.NameAndSurnameValidation(UserNameBox.Text))
             {
                 UserNameBox.Text = UserNameBox.Text.Substring(0, UserNameBox.Text.Length - 1);
                 SetCursorAtTheWordEnd(UserNameBox);
-                
+
             }
         }
 
@@ -91,7 +94,42 @@ namespace IParkingClient
                 createNewAccountView.RepeatPasswordValid(PassBox.Text, SecPassBox.Text);
             }
         }
-  
+
+        private void PlateBox_TextChangedComplete(object? sender, EventArgs e)
+        {
+            if (PlateBox.Text != null || PlateBox.Text != "")
+            {
+                createNewAccountView.CarPlateNumberValidation(PlateBox.Text);
+            }
+        }
+
+        private void BrandBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!createNewAccountView.NameAndSurnameValidation(BrandBox.Text))
+            {
+                BrandBox.Text = BrandBox.Text.Substring(0, BrandBox.Text.Length - 1);
+                SetCursorAtTheWordEnd(BrandBox);
+            }
+        }
+
+        private void ModelBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!createNewAccountView.NameAndSurnameValidation(ModelBox.Text))
+            {
+                ModelBox.Text = ModelBox.Text.Substring(0, ModelBox.Text.Length - 1);
+                SetCursorAtTheWordEnd(ModelBox);
+            }
+        }
+
+        private void CarColorBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!createNewAccountView.NameAndSurnameValidation(CarColorBox.Text))
+            {
+                CarColorBox.Text = CarColorBox.Text.Substring(0, CarColorBox.Text.Length - 1);
+                SetCursorAtTheWordEnd(CarColorBox);
+            }
+        }
+
         private void ShowPass_CheckedChanged(object sender, EventArgs e)
         {
             PassBox.UseSystemPasswordChar = !ShowPass.Checked;
@@ -101,12 +139,16 @@ namespace IParkingClient
         {
             SecPassBox.UseSystemPasswordChar = !ShowSecPass.Checked;
         }
-    
+
         private void SetCursorAtTheWordEnd(TextBox textBox)
         {
-            textBox.SelectionStart = UserNameBox.Text.Length;
+            textBox.SelectionStart = textBox.Text.Length;
             textBox.SelectionLength = 0;
         }
 
+        private void CreateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
