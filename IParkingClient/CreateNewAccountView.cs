@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IParkingClient
+{
+    public class CreateNewAccountView
+    {
+        //Input should not be to long, in order to avoid jokes :)
+        private const int MAXINPUTLENGHT = 29;
+
+        public bool NameAndSurnameValidation(string input)
+        {
+            if (!StringChecker.IsNameCorrect(input) || input.Length > MAXINPUTLENGHT)
+            {
+                CustomMessageBox("Nieprawidłowe dane",
+                    "Akceptowane są jedynie duże i małe litery, oraz znak -. " +
+                    "Tekst nie może być dłuższy niż 30 znaków.");
+                return false;
+            }
+            return true;
+        }
+
+        public bool EmailValidation(string email)
+        {
+            if (!StringChecker.IsEmailCorrect(email) || email.Length > MAXINPUTLENGHT)
+            {
+                CustomMessageBox("Nieprawidłowe dane",
+                    "Wprowadź prawidłowy email.");
+                return false;
+            }
+            return true;
+        }
+
+        public bool PasswordValidation(string password)
+        {
+            if (!StringChecker.IsPasswordSTRONK(password))
+            {
+                CustomMessageBox(" Silne hasło wymagane! ",
+                    "Wprowadź silne hasło: Posiada więcej niż 8 znaków, jedną dużą i jedną małą literę, posiada jedną cyfrę " +
+                    "i przynajmniej jeden znak specjalny, jak np. !@#$%^");
+                return false;
+            }
+            return true;
+        }
+
+        public bool RepeatPasswordValid(string password, string secondPassword) 
+        {
+
+            if (!StringChecker.DoPasswordsMatch(password, secondPassword))
+            {
+                CustomMessageBox("Podane hasła są różne!", "Wprowadź takie same hasła!");
+                return false;
+            }
+            return true;
+
+        }
+
+        private void CustomMessageBox(string problemName, string problemDescription)
+        {
+            MessageBox.Show(problemDescription, problemName, MessageBoxButtons.OK);
+        }
+
+    }
+
+}

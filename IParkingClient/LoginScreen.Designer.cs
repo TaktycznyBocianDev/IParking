@@ -55,6 +55,7 @@
             AddNewUserBtn.TabIndex = 1;
             AddNewUserBtn.Text = "Nie masz jeszcze konta? Naciśnij tutaj!";
             AddNewUserBtn.UseVisualStyleBackColor = true;
+            AddNewUserBtn.Click += AddNewUserBtn_Click;
             // 
             // label1
             // 

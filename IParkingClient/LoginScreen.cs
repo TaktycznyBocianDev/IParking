@@ -27,5 +27,11 @@ namespace IParkingClient
         {
 
         }
+
+        private void AddNewUserBtn_Click(object sender, EventArgs e)
+        {
+            CreateNewAccountForm createNewAccountForm = new CreateNewAccountForm();
+            createNewAccountForm.ShowDialog();
+        }
     }
 }

@@ -40,16 +40,17 @@
             label10 = new Label();
             label11 = new Label();
             CreateBtn = new Button();
-            NothingEmptyLbl = new Label();
             UserNameBox = new TextBox();
             SurnameBox = new TextBox();
             PassBox = new TextBox();
             EmailBox = new TextBox();
-            DoublePassBox = new TextBox();
+            SecPassBox = new TextBox();
             CarColorBox = new TextBox();
             ModelBox = new TextBox();
             BrandBox = new TextBox();
             PlateBox = new TextBox();
+            ShowPass = new CheckBox();
+            ShowSecPass = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -161,21 +162,14 @@
             CreateBtn.Text = "Stwórz Konto";
             CreateBtn.UseVisualStyleBackColor = true;
             // 
-            // NothingEmptyLbl
-            // 
-            NothingEmptyLbl.AutoSize = true;
-            NothingEmptyLbl.Location = new Point(498, 413);
-            NothingEmptyLbl.Name = "NothingEmptyLbl";
-            NothingEmptyLbl.Size = new Size(166, 20);
-            NothingEmptyLbl.TabIndex = 12;
-            NothingEmptyLbl.Text = "Wypełnij wszystkie pola";
-            // 
             // UserNameBox
             // 
             UserNameBox.Location = new Point(135, 135);
             UserNameBox.Name = "UserNameBox";
             UserNameBox.Size = new Size(125, 27);
             UserNameBox.TabIndex = 13;
+            UserNameBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
+            UserNameBox.TextChanged += UserNameBox_TextChanged;
             // 
             // SurnameBox
             // 
@@ -183,6 +177,8 @@
             SurnameBox.Name = "SurnameBox";
             SurnameBox.Size = new Size(125, 27);
             SurnameBox.TabIndex = 14;
+            SurnameBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
+            SurnameBox.TextChanged += SurnameBox_TextChanged;
             // 
             // PassBox
             // 
@@ -190,6 +186,7 @@
             PassBox.Name = "PassBox";
             PassBox.Size = new Size(125, 27);
             PassBox.TabIndex = 16;
+            PassBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
             // 
             // EmailBox
             // 
@@ -197,13 +194,15 @@
             EmailBox.Name = "EmailBox";
             EmailBox.Size = new Size(125, 27);
             EmailBox.TabIndex = 15;
+            EmailBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
             // 
-            // DoublePassBox
+            // SecPassBox
             // 
-            DoublePassBox.Location = new Point(135, 347);
-            DoublePassBox.Name = "DoublePassBox";
-            DoublePassBox.Size = new Size(125, 27);
-            DoublePassBox.TabIndex = 17;
+            SecPassBox.Location = new Point(135, 347);
+            SecPassBox.Name = "SecPassBox";
+            SecPassBox.Size = new Size(125, 27);
+            SecPassBox.TabIndex = 17;
+            SecPassBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
             // 
             // CarColorBox
             // 
@@ -211,6 +210,7 @@
             CarColorBox.Name = "CarColorBox";
             CarColorBox.Size = new Size(125, 27);
             CarColorBox.TabIndex = 21;
+            CarColorBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
             // 
             // ModelBox
             // 
@@ -218,6 +218,7 @@
             ModelBox.Name = "ModelBox";
             ModelBox.Size = new Size(125, 27);
             ModelBox.TabIndex = 20;
+            ModelBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
             // 
             // BrandBox
             // 
@@ -225,6 +226,7 @@
             BrandBox.Name = "BrandBox";
             BrandBox.Size = new Size(125, 27);
             BrandBox.TabIndex = 19;
+            BrandBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
             // 
             // PlateBox
             // 
@@ -232,22 +234,46 @@
             PlateBox.Name = "PlateBox";
             PlateBox.Size = new Size(125, 27);
             PlateBox.TabIndex = 18;
+            PlateBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:01");
+            // 
+            // ShowPass
+            // 
+            ShowPass.AutoSize = true;
+            ShowPass.Location = new Point(266, 294);
+            ShowPass.Name = "ShowPass";
+            ShowPass.Size = new Size(111, 24);
+            ShowPass.TabIndex = 22;
+            ShowPass.Text = "Pokaż Hasło";
+            ShowPass.UseVisualStyleBackColor = true;
+            ShowPass.CheckedChanged += ShowPass_CheckedChanged;
+            // 
+            // ShowSecPass
+            // 
+            ShowSecPass.AutoSize = true;
+            ShowSecPass.Location = new Point(266, 347);
+            ShowSecPass.Name = "ShowSecPass";
+            ShowSecPass.Size = new Size(111, 24);
+            ShowSecPass.TabIndex = 23;
+            ShowSecPass.Text = "Pokaż Hasło";
+            ShowSecPass.UseVisualStyleBackColor = true;
+            ShowSecPass.CheckedChanged += ShowSecPass_CheckedChanged;
             // 
             // CreateNewAccountForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ShowSecPass);
+            Controls.Add(ShowPass);
             Controls.Add(CarColorBox);
             Controls.Add(ModelBox);
             Controls.Add(BrandBox);
             Controls.Add(PlateBox);
-            Controls.Add(DoublePassBox);
+            Controls.Add(SecPassBox);
             Controls.Add(PassBox);
             Controls.Add(EmailBox);
             Controls.Add(SurnameBox);
             Controls.Add(UserNameBox);
-            Controls.Add(NothingEmptyLbl);
             Controls.Add(CreateBtn);
             Controls.Add(label11);
             Controls.Add(label10);
@@ -281,15 +307,16 @@
         private Label label10;
         private Label label11;
         private Button CreateBtn;
-        private Label NothingEmptyLbl;
         private TextBox UserNameBox;
         private TextBox SurnameBox;
         private TextBox PassBox;
         private TextBox EmailBox;
-        private TextBox DoublePassBox;
+        private TextBox SecPassBox;
         private TextBox CarColorBox;
         private TextBox ModelBox;
         private TextBox BrandBox;
         private TextBox PlateBox;
+        private CheckBox ShowPass;
+        private CheckBox ShowSecPass;
     }
 }
