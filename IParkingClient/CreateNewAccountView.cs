@@ -69,6 +69,32 @@ namespace IParkingClient
             return true;
         }
 
+        public bool FinalUserCarCreation(string[] userAtributes, string[] carAtributes)
+        {
+            if (!StringChecker.AreAtributesFull(userAtributes) || !StringChecker.AreAtributesFull(carAtributes))
+            {
+                CustomMessageBox("Puste dane!",
+                    "Uzupełnij wszystkie pola w sposób prawidłowy i ponów próbę.");
+                return false;
+            }
+            else
+            {
+                SendUserObjectToDatabase(userAtributes);
+                SendCarObjectToDatabase(carAtributes);
+                return true;
+            }
+        }
+
+        public void SendUserObjectToDatabase(string[] userAtributes)
+        {
+
+        }
+
+        public void SendCarObjectToDatabase(string[] carAtributes)
+        {
+
+        }
+
         private void CustomMessageBox(string problemName, string problemDescription)
         {
             MessageBox.Show(problemDescription, problemName, MessageBoxButtons.OK);

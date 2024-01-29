@@ -76,6 +76,14 @@ namespace IParkingClient
 
             return Regex.IsMatch(plateNumber, regex, RegexOptions.IgnoreCase);
         }
-   
+
+        public static bool AreAtributesFull(string[] atributes)
+        {
+            foreach (string s in atributes)
+            {
+                if (string.IsNullOrEmpty(s)) return false;
+            }
+            return true;
+        }   
     }
 }

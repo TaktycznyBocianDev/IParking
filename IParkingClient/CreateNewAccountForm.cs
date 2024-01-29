@@ -148,7 +148,12 @@ namespace IParkingClient
 
         private void CreateBtn_Click(object sender, EventArgs e)
         {
+            //Final Validation
 
+
+            //Object creation
+
+            //Base connection and create record
         }
     }
 }
