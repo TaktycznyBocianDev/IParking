@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IParkingClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c9e6232260a899daf79f0144dc19fd70cd39e44")]
 [assembly: System.Reflection.AssemblyProductAttribute("IParkingClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IParkingClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

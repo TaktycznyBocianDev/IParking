@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,18 @@ namespace IParkingClient
     {
 
         CreateNewAccountView createNewAccountView;
+        SQLiteConnection connection;
+
+        DataMaker dataMaker;
 
         public CreateNewAccountForm()
         {
             InitializeComponent();
 
-            createNewAccountView = new CreateNewAccountView();
+
+            connection = new SQLiteConnection(ConnectionManager.LoadConnectionString());
+            dataMaker = new DataMaker(connection);
+            createNewAccountView = new CreateNewAccountView(dataMaker);
 
             // Set up event handlers for text changed events
             EmailBox.TextChangedComplete += EmailBox_TextChangedComplete;
@@ -148,12 +155,13 @@ namespace IParkingClient
 
         private void CreateBtn_Click(object sender, EventArgs e)
         {
-            //Final Validation
+            string[] userAtributes = {UserNameBox.Text, SurnameBox.Text, EmailBox.Text, PassBox.Text};
+            string[] carAtributes = {PlateBox.Text, BrandBox.Text, ModelBox.Text, CarColorBox.Text};
 
 
-            //Object creation
+            createNewAccountView.FinalUserCarCreation(userAtributes, carAtributes);
 
-            //Base connection and create record
+
         }
     }
 }

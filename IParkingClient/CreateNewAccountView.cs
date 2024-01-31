@@ -11,6 +11,13 @@ namespace IParkingClient
         //Input should not be to long, in order to avoid jokes :)
         private const int MAXINPUTLENGHT = 29;
 
+        private readonly DataMaker _dataMaker;
+
+        public CreateNewAccountView(DataMaker dataMaker)
+        {
+            _dataMaker = dataMaker;
+        }
+
         public bool NameAndSurnameValidation(string input)
         {
             if (!StringChecker.IsNameCorrect(input) || input.Length > MAXINPUTLENGHT)
@@ -87,7 +94,8 @@ namespace IParkingClient
 
         public void SendUserObjectToDatabase(string[] userAtributes)
         {
-
+            UserModel user = new UserModel(userAtributes[0], userAtributes[1], userAtributes[2], UserTypes.user);
+            _dataMaker.CreateUser(user);
         }
 
         public void SendCarObjectToDatabase(string[] carAtributes)
