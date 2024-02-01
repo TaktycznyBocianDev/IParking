@@ -21,6 +21,7 @@ namespace IParkingClient
         SQLiteConnection connection;
 
         DataMaker dataMaker;
+        DataReader reader;
 
         public CreateNewAccountForm()
         {
@@ -29,7 +30,8 @@ namespace IParkingClient
 
             connection = new SQLiteConnection(ConnectionManager.LoadConnectionString());
             dataMaker = new DataMaker(connection);
-            createNewAccountView = new CreateNewAccountView(dataMaker);
+            reader = new DataReader(connection);
+            createNewAccountView = new CreateNewAccountView(dataMaker, reader);
 
             // Set up event handlers for text changed events
             EmailBox.TextChangedComplete += EmailBox_TextChangedComplete;
@@ -155,13 +157,12 @@ namespace IParkingClient
 
         private void CreateBtn_Click(object sender, EventArgs e)
         {
-            string[] userAtributes = {UserNameBox.Text, SurnameBox.Text, EmailBox.Text, PassBox.Text};
-            string[] carAtributes = {PlateBox.Text, BrandBox.Text, ModelBox.Text, CarColorBox.Text};
+
+            UserModel user = new UserModel(UserNameBox.Text, SurnameBox.Text, EmailBox.Text, PassBox.Text, UserTypes.user);
+            CarModel car = new CarModel(PlateBox.Text, BrandBox.Text, ModelBox.Text, CarColorBox.Text, EmailBox.Text);
 
 
-            createNewAccountView.FinalUserCarCreation(userAtributes, carAtributes);
-
-
+            if (createNewAccountView.FinalUserCarCreation(user, car)) this.Close();
         }
     }
 }

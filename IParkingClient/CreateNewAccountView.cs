@@ -12,10 +12,12 @@ namespace IParkingClient
         private const int MAXINPUTLENGHT = 29;
 
         private readonly DataMaker _dataMaker;
+        private readonly DataReader _dataReader;
 
-        public CreateNewAccountView(DataMaker dataMaker)
+        public CreateNewAccountView(DataMaker dataMaker, DataReader dataReader)
         {
             _dataMaker = dataMaker;
+            _dataReader = dataReader;   
         }
 
         public bool NameAndSurnameValidation(string input)
@@ -76,9 +78,9 @@ namespace IParkingClient
             return true;
         }
 
-        public bool FinalUserCarCreation(string[] userAtributes, string[] carAtributes)
+        public bool FinalUserCarCreation(UserModel user, CarModel car)
         {
-            if (!StringChecker.AreAtributesFull(userAtributes) || !StringChecker.AreAtributesFull(carAtributes))
+            if (!user.AreAtributesCorrect() || !car.AreAtributesCorrect())
             {
                 CustomMessageBox("Puste dane!",
                     "Uzupełnij wszystkie pola w sposób prawidłowy i ponów próbę.");
@@ -86,21 +88,30 @@ namespace IParkingClient
             }
             else
             {
-                SendUserObjectToDatabase(userAtributes);
-                SendCarObjectToDatabase(carAtributes);
+                SendUserObjectToDatabase(user);
+                SendCarObjectToDatabase(car);
+                CustomMessageBox("Utworzono użytkownika!",
+                    "Możesz się teraz zalogować!");
                 return true;
             }
         }
 
-        public void SendUserObjectToDatabase(string[] userAtributes)
+        public void SendUserObjectToDatabase(UserModel user)
         {
-            UserModel user = new UserModel(userAtributes[0], userAtributes[1], userAtributes[2], UserTypes.user);
-            _dataMaker.CreateUser(user);
+            _dataMaker.Create(user);
         }
 
-        public void SendCarObjectToDatabase(string[] carAtributes)
+        public void SendCarObjectToDatabase(CarModel car)
         {
-
+            if (_dataReader.GetUser(car.UserEmail) != null)
+            {
+               _dataMaker.Create(car);
+            }
+            else
+            {
+                CustomMessageBox("Błąd połączenia",
+                    "Próba utworzenia samochodu bez przypisanego użytkownika. Skontaktuj się z prezydentem.");
+            }
         }
 
         private void CustomMessageBox(string problemName, string problemDescription)

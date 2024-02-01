@@ -13,7 +13,6 @@ namespace IParkingClient
     public class DataMaker
     {
 
-
         private readonly IDbConnection _connection;
 
         public DataMaker(IDbConnection connection)
@@ -29,10 +28,11 @@ namespace IParkingClient
 
                 using (var transaction = _connection.BeginTransaction())
                 {
-                    string query = "INSERT INTO User (UserName, Email, Password, UserType) VALUES (@UserName, @Email, @Password, @UserType);";
+                    string query = "INSERT INTO User (UserName, Surname, Email, Password, UserType) VALUES (@UserName, @Surname, @Email, @Password, @UserType);";
                     _connection.Execute(query, new
                     {
                         UserName = user.UserName,
+                        Surname = user.Surname,
                         Email = user.Email,
                         Password = user.Password,
                         UserType = user.UserType
@@ -52,7 +52,7 @@ namespace IParkingClient
             }
         }
 
-        public void Create(CarModel carModel, UserModel carOwner)
+        public void Create(CarModel car)
         {
             try
             {
@@ -60,14 +60,14 @@ namespace IParkingClient
 
                 using (var transaction = _connection.BeginTransaction())
                 {
-                    string query = "INSERT INTO Car (PlateNumber, Brand, Model, Color, UserID) VALUES (@PlateNumber, @Brand, @Model, @Color, @UserID);";
+                    string query = "INSERT INTO Car (PlateNumber, Brand, Model, Color, UserEmail) VALUES (@PlateNumber, @Brand, @Model, @Color, @UserEmail);";
                     _connection.Execute(query, new
                     {
-                        PlateNumber = carModel.PlateNumber,
-                        Brand = carModel.Brand,
-                        Model = carModel.Model,
-                        Color = carModel.Color,
-                        UserID = carOwner.UserId
+                        PlateNumber = car.PlateNumber,
+                        Brand = car.Brand,
+                        Model = car.Model,
+                        Color = car.Color,
+                        UserEmail = car.UserEmail
 
                     }, transaction: transaction);
                     transaction.Commit();

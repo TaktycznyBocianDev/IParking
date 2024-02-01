@@ -21,25 +21,25 @@ namespace IParkingClient
 
         public string Color { get; set; }
 
-        public int UserId { get; set; }
+        public string UserEmail { get; set; }
 
-        public CarModel(int carId, string plateNumber, string brand, string model, string color, int userId)
+        public CarModel(int carId, string plateNumber, string brand, string model, string color, string userEmail)
         {
             CarId = carId;
             PlateNumber = plateNumber;
             Brand = brand;
             Model = model;
             Color = color;
-            UserId = userId;
+            UserEmail = userEmail;
         }
 
-        public CarModel(string plateNumber, string brand, string model, string color, int userId)
+        public CarModel(string plateNumber, string brand, string model, string color, string userEmail)
         {
             PlateNumber = plateNumber;
             Brand = brand;
             Model = model;
             Color = color;
-            UserId = userId;
+            UserEmail = userEmail;
         }
 
         public CarModel()
@@ -48,7 +48,17 @@ namespace IParkingClient
             Brand = "Skodunia";
             Model = "Feliczita";
             Color = "Zielony";
-            UserId = 0;
+            UserEmail = "TotalnyFake@gmmailo.com";
+        }
+
+        public bool AreAtributesCorrect()
+        {
+            if (string.IsNullOrEmpty(PlateNumber)) return false;
+            if (string.IsNullOrEmpty(Brand)) return false;
+            if (string.IsNullOrEmpty(Model)) return false;
+            if (string.IsNullOrEmpty(Color)) return false;
+            if (string.IsNullOrEmpty(UserEmail)) return false;
+            return true;
         }
     }
 }
