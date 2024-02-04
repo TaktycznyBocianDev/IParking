@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -41,9 +43,16 @@ namespace IParkingClient
                     transaction.Commit();
                 }
             }
-            catch (Exception ex)
+            catch (SQLiteException ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                if (ex.ResultCode == SQLiteErrorCode.Constraint_Unique)
+                {
+                    Debug.Write("SQLiteError: " + ex.Message);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
                 throw;
             }
             finally

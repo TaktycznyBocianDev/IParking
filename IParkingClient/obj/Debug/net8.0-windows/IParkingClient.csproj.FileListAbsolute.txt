@@ -51,3 +51,5 @@ D:\CSharpProjects\IParking\IParkingClient\obj\Debug\net8.0-windows\refint\IParki
 D:\CSharpProjects\IParking\IParkingClient\obj\Debug\net8.0-windows\IParkingClient.pdb
 D:\CSharpProjects\IParking\IParkingClient\obj\Debug\net8.0-windows\IParkingClient.genruntimeconfig.cache
 D:\CSharpProjects\IParking\IParkingClient\obj\Debug\net8.0-windows\ref\IParkingClient.dll
+D:\CSharpProjects\IParking\IParkingClient\obj\Debug\net8.0-windows\IParkingClient.ParkingForm.resources
+D:\CSharpProjects\IParking\IParkingClient\obj\Debug\net8.0-windows\IParkingClient.Properties.Resources.resources

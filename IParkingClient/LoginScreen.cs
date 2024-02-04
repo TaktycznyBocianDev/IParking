@@ -33,5 +33,12 @@ namespace IParkingClient
             CreateNewAccountForm createNewAccountForm = new CreateNewAccountForm();
             createNewAccountForm.ShowDialog();
         }
+
+        private void LogBtn_Click(object sender, EventArgs e)
+        {
+            ParkingForm parkingForm = new ParkingForm(new UserModel(), new CarModel());
+            parkingForm.ShowDialog();
+
+        }
     }
 }

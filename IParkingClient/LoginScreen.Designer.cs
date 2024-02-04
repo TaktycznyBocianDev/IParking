@@ -45,6 +45,7 @@
             LogBtn.TabIndex = 0;
             LogBtn.Text = "Zaloguj";
             LogBtn.UseVisualStyleBackColor = true;
+            LogBtn.Click += LogBtn_Click;
             // 
             // AddNewUserBtn
             // 
@@ -74,6 +75,7 @@
             LoginTxt.Name = "LoginTxt";
             LoginTxt.Size = new Size(271, 27);
             LoginTxt.TabIndex = 3;
+            LoginTxt.TextChangedCompleteDelay = TimeSpan.Parse("00:00:02");
             // 
             // label2
             // 
@@ -92,6 +94,7 @@
             PassBtn.Name = "PassBtn";
             PassBtn.Size = new Size(271, 27);
             PassBtn.TabIndex = 5;
+            PassBtn.TextChangedCompleteDelay = TimeSpan.Parse("00:00:02");
             // 
             // LoginScreen
             // 

@@ -43,6 +43,17 @@ namespace IParkingClient
             return true;
         }
 
+        public bool GivenEmailExists(string email)
+        {
+            if (_dataReader.GetUser(email) != null)
+            {
+                CustomMessageBox("Podany użytkownik istnieje!",
+                    "Skontaktuj się z administratorem celem odzyskania konta.");
+                return false;
+            }
+            return true;
+        }
+
         public bool PasswordValidation(string password)
         {
             if (!StringChecker.IsPasswordSTRONK(password))
@@ -80,6 +91,11 @@ namespace IParkingClient
 
         public bool FinalUserCarCreation(UserModel user, CarModel car)
         {
+            if (user.Email == null || user.Email == "")
+            {
+                CustomMessageBox("Błędny lub istniejący emal!",
+                    "Wprowadź poprawny email lub skontaktuj się z administratorem celem odzyskania konta.");
+            }
             if (!user.AreAtributesCorrect() || !car.AreAtributesCorrect())
             {
                 CustomMessageBox("Puste dane!",
@@ -114,7 +130,7 @@ namespace IParkingClient
             }
         }
 
-        private void CustomMessageBox(string problemName, string problemDescription)
+        public void CustomMessageBox(string problemName, string problemDescription)
         {
             MessageBox.Show(problemDescription, problemName, MessageBoxButtons.OK);
         }

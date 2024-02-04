@@ -11,34 +11,31 @@ namespace IParkingClient
     {
 
         public int SpotID { get; private set; }
-        public int SpotNumber { get; set; }
 
         public bool IsOccupied { get; set; }
 
+        public DateTime OccupiedFrom { get; set; }
+
+        public DateTime OccupiedTo { get; set; }
+
         public int CarID { get; set; }
 
-        public ParkingSpotModel(int spotID, int spotNumber, bool isOccupied, int carID)
+        public ParkingSpotModel(int spotID, bool isOccupied, DateTime occupiedFrom, DateTime occupiedTo, int carID)
         {
             SpotID = spotID;
-            SpotNumber = spotNumber;
             IsOccupied = isOccupied;
-            CarID = carID;
-        }
-
-        public ParkingSpotModel(int spotNumber, bool isOccupied, int carID)
-        {
-            SpotNumber = spotNumber;
-            IsOccupied = isOccupied;
+            OccupiedFrom = occupiedFrom;
+            OccupiedTo = occupiedTo;
             CarID = carID;
         }
 
         public ParkingSpotModel() 
         {
-
-            SpotNumber = 1;
             IsOccupied = true;
             CarID = 0;
 
         }
+
+        
     }
 }

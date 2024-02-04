@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -82,8 +83,12 @@ namespace IParkingClient
         private void EmailBox_TextChangedComplete(object? sender, EventArgs e)
         {
             if (EmailBox.Text != null || EmailBox.Text == "")
-            {
+            {                       
                 createNewAccountView.EmailValidation(EmailBox.Text);
+                if (!createNewAccountView.GivenEmailExists(EmailBox.Text))
+                {
+                    EmailBox.Text = "";
+                }
             }
 
         }
@@ -157,12 +162,21 @@ namespace IParkingClient
 
         private void CreateBtn_Click(object sender, EventArgs e)
         {
+            //email check for more protection
+            if (!createNewAccountView.GivenEmailExists(EmailBox.Text))
+            {
+                createNewAccountView.CustomMessageBox("Błędny email!", "Podany użytkownik istnieje lub podano błędny email.");
+                EmailBox.Text = "";
+            }
+            else
+            {
+                UserModel user = new UserModel(UserNameBox.Text, SurnameBox.Text, EmailBox.Text, PassBox.Text, UserTypes.user);
+                CarModel car = new CarModel(PlateBox.Text, BrandBox.Text, ModelBox.Text, CarColorBox.Text, EmailBox.Text);
 
-            UserModel user = new UserModel(UserNameBox.Text, SurnameBox.Text, EmailBox.Text, PassBox.Text, UserTypes.user);
-            CarModel car = new CarModel(PlateBox.Text, BrandBox.Text, ModelBox.Text, CarColorBox.Text, EmailBox.Text);
 
-
-            if (createNewAccountView.FinalUserCarCreation(user, car)) this.Close();
+                if (createNewAccountView.FinalUserCarCreation(user, car)) this.Close();
+            }
+          
         }
     }
 }
