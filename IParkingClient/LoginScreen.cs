@@ -6,22 +6,22 @@ namespace IParkingClient
 {
     public partial class LoginScreen : Form
     {
+
+        LoginScreenView _view;
+        DataMaker _dataMaker;
+        DataReader _reader;
+
         public LoginScreen()
         {
             InitializeComponent();
+            SQLiteConnection connection = new SQLiteConnection(ConnectionManager.LoadConnectionString());
+            DataMaker _dataMaker = new DataMaker(connection);
+            DataReader _reader = new DataReader(connection);
+            _view = new LoginScreenView(_dataMaker, _reader);
+
+            PassTxtBox.UseSystemPasswordChar = true;
+            ShowPassChck.Checked = false;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public static string LoadConnectionString(string id = "ParkingDB")
-        {
-            return ConfigurationManager.ConnectionStrings[id].ConnectionString;
-        }
-
-        SQLiteConnection con = new SQLiteConnection(LoadConnectionString());
 
         private void LoginScreen_Load(object sender, EventArgs e)
         {
@@ -36,9 +36,25 @@ namespace IParkingClient
 
         private void LogBtn_Click(object sender, EventArgs e)
         {
-            ParkingForm parkingForm = new ParkingForm(new UserModel(), new CarModel());
-            parkingForm.ShowDialog();
+            UserModel userModel = _view.GetUserByEmail(LoginTxtBox.Text);
 
+            if (_view.IsPasswordCorrect(userModel, PassTxtBox.Text))
+            {
+                CarModel car = _view.GetCar(LoginTxtBox.Text);
+
+                if (car != null)
+                {
+                    ParkingForm parkingForm = new ParkingForm(userModel, car);
+                    parkingForm.ShowDialog();
+                   
+                }
+
+            }
+        }
+
+        private void ShowPassChck_CheckedChanged(object sender, EventArgs e)
+        {
+            PassTxtBox.UseSystemPasswordChar = !ShowPassChck.Checked;
         }
     }
 }

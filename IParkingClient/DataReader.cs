@@ -22,5 +22,11 @@ namespace IParkingClient
             string query = "SELECT * FROM User WHERE Email = @Email";
             return _connection.QueryFirstOrDefault<UserModel>(query, new { Email = email });
         }
+
+        public CarModel GetCar(string email)
+        {
+            string query = "SELECT * FROM Car WHERE UserEmail = @UserEmail";
+            return _connection.QueryFirstOrDefault<CarModel>(query, new { UserEmail = email });
+        }
     }
 }

@@ -23,6 +23,12 @@ namespace IParkingClient
             ParkingOutline.Image = Image.FromFile(ImagePath);
             this.user = user;
             this.car = car;
+            CustomMessageBox(user.Email, car.Model);
+        }
+
+        public void CustomMessageBox(string problemName, string problemDescription)
+        {
+            MessageBox.Show(problemDescription, problemName, MessageBoxButtons.OK);
         }
     }
 }

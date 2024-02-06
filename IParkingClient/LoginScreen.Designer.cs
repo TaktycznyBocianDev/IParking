@@ -31,9 +31,10 @@
             LogBtn = new Button();
             AddNewUserBtn = new Button();
             label1 = new Label();
-            LoginTxt = new TextBox();
+            LoginTxtBox = new TextBox();
             label2 = new Label();
-            PassBtn = new TextBox();
+            PassTxtBox = new TextBox();
+            ShowPassChck = new CheckBox();
             SuspendLayout();
             // 
             // LogBtn
@@ -68,14 +69,14 @@
             label1.TabIndex = 2;
             label1.Text = "Super Fajny Login";
             // 
-            // LoginTxt
+            // LoginTxtBox
             // 
-            LoginTxt.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            LoginTxt.Location = new Point(240, 98);
-            LoginTxt.Name = "LoginTxt";
-            LoginTxt.Size = new Size(271, 27);
-            LoginTxt.TabIndex = 3;
-            LoginTxt.TextChangedCompleteDelay = TimeSpan.Parse("00:00:02");
+            LoginTxtBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            LoginTxtBox.Location = new Point(240, 98);
+            LoginTxtBox.Name = "LoginTxtBox";
+            LoginTxtBox.Size = new Size(271, 27);
+            LoginTxtBox.TabIndex = 3;
+            LoginTxtBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:02");
             // 
             // label2
             // 
@@ -87,23 +88,35 @@
             label2.TabIndex = 4;
             label2.Text = "Super Tajne Hasło";
             // 
-            // PassBtn
+            // PassTxtBox
             // 
-            PassBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            PassBtn.Location = new Point(240, 189);
-            PassBtn.Name = "PassBtn";
-            PassBtn.Size = new Size(271, 27);
-            PassBtn.TabIndex = 5;
-            PassBtn.TextChangedCompleteDelay = TimeSpan.Parse("00:00:02");
+            PassTxtBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PassTxtBox.Location = new Point(240, 189);
+            PassTxtBox.Name = "PassTxtBox";
+            PassTxtBox.Size = new Size(271, 27);
+            PassTxtBox.TabIndex = 5;
+            PassTxtBox.TextChangedCompleteDelay = TimeSpan.Parse("00:00:02");
+            // 
+            // ShowPassChck
+            // 
+            ShowPassChck.AutoSize = true;
+            ShowPassChck.Location = new Point(240, 222);
+            ShowPassChck.Name = "ShowPassChck";
+            ShowPassChck.Size = new Size(108, 24);
+            ShowPassChck.TabIndex = 6;
+            ShowPassChck.Text = "Pokaż hasło";
+            ShowPassChck.UseVisualStyleBackColor = true;
+            ShowPassChck.CheckedChanged += ShowPassChck_CheckedChanged;
             // 
             // LoginScreen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(773, 452);
-            Controls.Add(PassBtn);
+            Controls.Add(ShowPassChck);
+            Controls.Add(PassTxtBox);
             Controls.Add(label2);
-            Controls.Add(LoginTxt);
+            Controls.Add(LoginTxtBox);
             Controls.Add(label1);
             Controls.Add(AddNewUserBtn);
             Controls.Add(LogBtn);
@@ -119,8 +132,9 @@
         private Button LogBtn;
         private Button AddNewUserBtn;
         private Label label1;
-        private TextBox LoginTxt;
+        private TextBox LoginTxtBox;
         private Label label2;
-        private TextBox PassBtn;
+        private TextBox PassTxtBox;
+        private CheckBox ShowPassChck;
     }
 }
