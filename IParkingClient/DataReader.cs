@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace IParkingClient
 {
@@ -27,6 +28,12 @@ namespace IParkingClient
         {
             string query = "SELECT * FROM Car WHERE UserEmail = @UserEmail";
             return _connection.QueryFirstOrDefault<CarModel>(query, new { UserEmail = email });
+        }
+
+        public List<ParkingSpotModel> GetAllParkingSpots()
+        {
+            string query = "SELECT * FROM ParkingSpot";
+            return _connection.Query<ParkingSpotModel>(query).AsList();
         }
     }
 }

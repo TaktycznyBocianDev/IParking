@@ -44,9 +44,9 @@ namespace IParkingClient
 
                 if (car != null)
                 {
-                    ParkingForm parkingForm = new ParkingForm(userModel, car);
+                    ParkingForm parkingForm = new ParkingForm(userModel, car, _dataMaker, _reader);
                     parkingForm.ShowDialog();
-                   
+
                 }
 
             }
